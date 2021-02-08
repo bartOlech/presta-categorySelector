@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .upper-box {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+    .bottom-box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+    .small-box {
+      width: 90%;
+      height: 200px;
+    }
+    .big-box {
+      width: 90%;
+      height: 200px;
+    }
+    .box-one {
+      background-image: url('./img/kitchen.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%, auto; 
+      max-width: 600px;
+    }
+ 
+    .photo-box {
+      margin: 20px;
+      width: 100%;
+      height: 300px;
+      cursor: pointer;
+    }
+    .image-selector {
+      width: 100%;
+      height: inherit;
+      background: rgba(0, 0, 0, .4);
+      text-align: center;
+    }
+    @media screen and (max-width: 500px) {
+      .box-one {
+        background-size: 500px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class='main-wrapper'>
+    <div class='upper-box'>
+      <div class='photo-box small-box box-one'>
+        <div class='image-selector'>tutaj przycisk</div>
+      </div>
+      <div class='photo-box big-box box-two'></div>
+    </div>
+    <div class='bottom-box'>
+      <div class='photo-box small-box box-three'></div>
+      <div class='photo-box big-box box-four'></div>
+    </div>
+  </div>
+</body>
+</html>
