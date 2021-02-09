@@ -5,233 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-	    --inv: #fff;
-}
-    .main-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .upper-box {
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-    }
-    .bottom-box {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      align-items: center;
-    }
-    .small-box {
-      width: 90%;
-      height: 200px;
-    }
-    .big-box {
-      width: 90%;
-      height: 200px;
-    }
-    .box-one {
-      background-image: url('./img/kitchen.jpg');
-    }
-    .box-two {
-      background-image: url('./img/bathroom.jpg');
-    }
-    .box-three {
-      background-image: url('./img/sleeping-room.jpg');
-    }
-    .box-four {
-      background-image: url('./img/gadgets.jpg');
-    }
- 
-    .photo-box {
-      margin: 10px;
-      width: 100%;
-      height: 300px;
-      cursor: pointer;
-      background-repeat: no-repeat;
-      background-size: 100%, auto; 
-      max-width: 600px;
-    }
-    .image-selector {
-      width: 100%;
-      height: inherit;
-      background: rgba(0, 0, 0, .5);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .image-text {
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-weight: 200;
-      color: white;
-      font-size: 2.2em;
-      margin-top: 60px;
-      letter-spacing: 2px;
-    }
-    .image-sub-text {
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-weight: 200;
-      color: white;
-      font-size: 1.3em;
-      text-align: center;
-      margin-top: 5px;
-    }
-    /* -----------Animation--------------- */
-
-    .btn {		
-      position: relative;	
-      letter-spacing: .1rem;
-      transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);	
-      cursor: pointer;
-      z-index: 222;
-      background: orange;
+   body {
+     margin: 0;
+     padding: 0;
+   }
+   .wrapper {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 50px;
+   }
+   .header {
+     width: 90%;
+     height: 1px;
+     background: rgb(182, 182, 182);
+     text-align: center;
+     position: relative;
+   }
+   .header-text {
+     position: absolute;
+     top: -20px;
+     left: 50%;
+     transform: translate(-50%, 0);
+     padding-left: 10px;
+     padding-right: 10px;
+     background: #fff;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 2em;
+     font-weight: 200;
+   }
+   .product-list {
+     width: 90%;
+     height: 300px;
+     background: grey;
+     margin-top: 40px;
+   }
+   .check-button {
+     width: 200px;
+     height: 45px;
+     border: 1px solid #000;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 1.2em;
+     font-weight: 200;
+     cursor: pointer;
+     transition: .3s;
+     background: #000;
+     color: #fff;
+     margin-top: 30px;
+     position: relative;
+     padding-right: 25px;
+   }
+   .check-button:hover {
+      background: #fff;
       color: #000;
-      width: 250px;
-      height: 44px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      text-decoration: none;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-size: 1.6em;
-      font-weight: 200;
-    }
-
-    .btn:before, .btn:after {
-      content: '';
-      position: absolute;	
-      transition: inherit;
-      z-index: -1;
-    }
-
-    .btn:hover {
-      color: var(--def);
-      transition-delay: .5s;
-    }
-
-    .btn:hover:before {
-      transition-delay: 0s;
-    }
-
-    .btn:hover:after {
-      background: #fff;
-      transition-delay: .25s;
-    }
-
-    .from-center:before {
-      left: 50%;
-      height: 100%;
-      width: 0;
-      border: 1px solid #fff;
-      border-left: 0;
-      border-right: 0;
-    }
-
-    .from-center:after {
-      bottom: 0;
-      left: 0;
-      height: 0;
-      width: 100%;
-      background: #fff;
-    }
-
-    .from-center:hover:before {
-      left: 0;
-      width: 100%;
-    }
-
-    .from-center:hover:after {
-      top: 0;
-      height: 100%;
-    }
-    /* -----------Animation--------------- */
-
-    @media screen and (max-width: 500px) {
-      .photo-box {
-        background-size: 500px auto;
-      }
-    }
-    @media screen and (min-width: 1000px) {
-        .small-box {
-        width: 30%;
-        height: 200px;
-      }
-      .big-box {
-        width: 60%;
-        height: 200px;
-      }
-      .upper-box {
-        flex-direction: row;
-        justify-content: center;
-      }
-      .bottom-box {
-        flex-direction: row;
-        justify-content: center;
-      }
-      .photo-box {
-        max-width: 1000px;
-        height: 350px;
-        margin: 5px;
-      }
-    }
+   }
+   .check-button span {
+     font-size: 1.3em;
+     margin-left: 20px;
+     margin-bottom: 2px;
+     position: absolute;
+     top: 8px;
+     right: 38px;
+     transition: .3s;
+   }
   </style>
 </head>
 <body>
-  <div class='main-wrapper'>
-    <!-- upper -->
-    <div class='upper-box'>
-      <!-- one -->
-      <div class='photo-box big-box box-one'>
-        <div class='image-selector'>
-          <div class='image-text'>
-            KUCHNIA
-          </div>
-          <div class='image-sub-text'>Tanie i praktyczne akcesoria do kuchni</div>
-          <a class="btn from-center" href="#">SPRAWDŹ</a>
-        </div>
-      </div>
-       <!-- two -->
-       <div class='photo-box small-box box-two'>
-        <div class='image-selector'>
-          <div class='image-text'>
-            ŁAZIENKA
-          </div>
-          <div class='image-sub-text'>Nowoczesne akcesoria do twojej łazienki</div>
-          <a class="btn from-center" href="#">SPRAWDŹ</a>
-        </div>
-      </div>
-    </div>
-    <!-- bottom -->
-    <div class='bottom-box'>
-      <!-- one -->
-      <div class='photo-box small-box box-three'>
-        <div class='image-selector'>
-          <div class='image-text'>
-            SYPIALNIA
-          </div>
-          <div class='image-sub-text'>Praktyczne produkty dla ciebie i twojej sypialni</div>
-          <a class="btn from-center" href="#">SPRAWDŹ</a>
-        </div>
-      </div>
-      <!-- two -->
-      <div class='photo-box big-box box-four'>
-        <div class='image-selector'>
-          <div class='image-text'>
-            GADŻETY
-          </div>
-          <div class='image-sub-text'>Niepowtarzalne gadżety dla twojego domu</div>
-          <a class="btn from-center" href="#">SPRAWDŹ</a>
-        </div>
-      </div>
-    </div>
+  <div class='wrapper'>
+    <div class='header'><div class='header-text'>Wyjątkowe szklanki do ulubionej kawy</div></div>
+    <div class='product-list'></div>
+    <div id='check-button' class='check-button'>Sprawdź więcej <span id='button-arrow'>»</span></div>
   </div>
+  <script>
+    const button =  document.querySelector('#check-button');
+
+    button.addEventListener('mouseover', () => {
+      document.querySelector('#button-arrow').style = 'right: 20px;';
+    })
+
+    button.addEventListener('mouseout', () => {
+      document.querySelector('#button-arrow').style = 'right: 38px';
+    })
+  </script>
 </body>
 </html>
